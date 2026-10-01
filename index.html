@@ -64,7 +64,17 @@
     box-shadow: 0 -6px 20px rgba(0,0,0,.06);
   }
   .dock.collapsed .dock-body { display: none; }
-  .dock-toggle { width: 100%; background: none; border: 0; padding: 0 0 8px; font: 600 13px system-ui, sans-serif; color: var(--green); cursor: pointer; text-align: left; }
+  .dock.collapsed { padding-top: 8px; padding-bottom: calc(8px + env(safe-area-inset-bottom)); }
+  .dock-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 8px; }
+  .dock.collapsed .dock-head { padding-bottom: 0; }
+  .dock-title { font: 600 13px system-ui, sans-serif; color: var(--green); margin: 0; }
+  .dock-min {
+    font: 600 13px system-ui, sans-serif; color: var(--green); background: #e8efe9; border: 0; border-radius: 8px;
+    padding: 8px 12px; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px;
+  }
+  .dock-min svg { width: 14px; height: 14px; transition: transform .15s; }
+  .dock.collapsed .dock-min svg { transform: rotate(180deg); }
+  body.dock-collapsed .wrap { padding-bottom: 90px; }
   label { display: block; font-size: 12px; font-weight: 600; margin: 8px 0 4px; }
   input[type="text"], input[type="email"] { width: 100%; font-size: 16px; padding: 10px 12px; border: 1px solid #bbb; border-radius: 8px; font-family: system-ui, sans-serif; }
   .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -296,8 +306,14 @@
 </div>
 
 <aside class="dock collapsed" id="sign-dock">
-  <button type="button" class="dock-toggle" id="dock-toggle">Electronic signature — tap to expand</button>
-  <div class="dock-body">
+  <div class="dock-head">
+    <p class="dock-title" id="dock-toggle">Electronic signature</p>
+    <button type="button" class="dock-min" id="dock-min" aria-expanded="true" aria-controls="dock-body">
+      <span id="dock-min-label">Minimize</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </div>
+  <div class="dock-body" id="dock-body">
     <form class="dock-form" id="sign-form">
       <div class="row">
         <div>
@@ -385,11 +401,15 @@
   canvas.addEventListener('touchend', end)
   document.getElementById('clear-btn').onclick = function () { ctx.clearRect(0, 0, canvas.width, canvas.height); hint.style.display = 'flex' }
 
+  const minBtn = document.getElementById('dock-min')
   function setDock(open) {
     dock.classList.toggle('collapsed', !open)
-    toggle.textContent = open ? 'Electronic signature' : 'Electronic signature — tap to expand'
+    document.body.classList.toggle('dock-collapsed', !open)
+    minBtn.setAttribute('aria-expanded', open ? 'true' : 'false')
+    document.getElementById('dock-min-label').textContent = open ? 'Minimize' : 'Expand'
   }
-  toggle.onclick = function () { setDock(dock.classList.contains('collapsed')) }
+  minBtn.onclick = function () { setDock(dock.classList.contains('collapsed')) }
+  toggle.onclick = function () { if (dock.classList.contains('collapsed')) setDock(true) }
   document.getElementById('jump-sign').onclick = function (e) {
     e.preventDefault(); setDock(true)
     dock.scrollIntoView({ behavior: 'smooth', block: 'end' })
