@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0b3d2e">
+<title>Sign — GreenOps Advisory MOU v1.1 + Amendment No. 1</title>
+<style>
+  :root {
+    --ink: #1a1a1a; --muted: #5a5a5a; --line: #c8c8c8;
+    --green: #0b3d2e; --green-2: #145a43; --bg: #f4f1ea; --card: #fff; --danger: #9b1c1c;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; font-family: Georgia, "Times New Roman", serif; color: var(--ink); background: var(--bg); }
+  .chrome {
+    position: sticky; top: 0; z-index: 20; background: var(--green); color: #fff;
+    padding: 10px 16px; padding-top: calc(10px + env(safe-area-inset-top));
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .chrome h1 { font-size: 13px; margin: 0; font-weight: 700; letter-spacing: .02em; }
+  .chrome p { margin: 2px 0 0; font-size: 11px; opacity: .85; font-family: system-ui, sans-serif; }
+  .chrome a {
+    font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600;
+    background: #fff; color: var(--green); border: 0; border-radius: 8px;
+    padding: 10px 14px; text-decoration: none; cursor: pointer; white-space: nowrap;
+  }
+  .banner {
+    font-family: system-ui, sans-serif; background: #e8efe9; color: var(--green);
+    padding: 10px 16px; font-size: 13px; line-height: 1.4; border-bottom: 1px solid #c5d4c9;
+  }
+  .wrap { max-width: 7.2in; margin: 0 auto; padding: 20px 16px 240px; }
+  article { background: var(--card); padding: 22px 20px; border: 1px solid #ddd; margin-bottom: 20px; }
+  article h1 { font-size: 15pt; text-align: center; margin: 0 0 4pt; }
+  article h1 + h2 { text-align: center; font-size: 12pt; border: none; margin: 0 0 12pt; color: #333; font-weight: normal; text-transform: none; letter-spacing: 0; }
+  article h2 { font-size: 11pt; text-transform: uppercase; letter-spacing: .04em; border-bottom: 1px solid #999; padding-bottom: 3pt; margin: 16pt 0 8pt; }
+  article h3 { font-size: 11pt; margin: 12pt 0 6pt; }
+  article p { margin: 0 0 8pt; text-align: justify; line-height: 1.45; }
+  article ul { margin: 0 0 8pt 1.2em; padding: 0; }
+  article li { margin-bottom: 4pt; text-align: justify; line-height: 1.45; }
+  article hr { border: none; border-top: 1px solid #ccc; margin: 10pt 0; }
+  article table { border-collapse: collapse; width: 100%; margin: 6pt 0 10pt; font-size: 10pt; }
+  article th, article td { border: 1px solid #bbb; padding: 4pt 6pt; vertical-align: top; }
+  article th { background: #f5f5f5; font-size: 9pt; text-transform: uppercase; letter-spacing: .03em; }
+  .doc-label {
+    font-family: system-ui, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: .08em;
+    color: var(--muted); margin: 0 0 10px;
+  }
+  .sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px; margin-top: 10pt; }
+  @media (max-width: 560px) { .sig-grid { grid-template-columns: 1fr; } }
+  .sig-block { padding-top: 6pt; }
+  .sig-block .party { font-family: system-ui, sans-serif; font-size: 9.5pt; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 0 0 4pt; }
+  .sig-block .who { margin: 0 0 6pt; text-align: left; }
+  .sig-block .sig-line { height: 72px; border-bottom: 1px solid #333; display: flex; align-items: flex-end; }
+  .sig-block .sig-line img { display: block; max-width: 280px; height: 72px; object-fit: contain; }
+  .sig-block .sig-line.awaiting { align-items: center; color: #9aa; font-family: system-ui, sans-serif; font-size: 12px; }
+  .sig-block .sig-line.mine { border-bottom-color: var(--green-2); background: #f3f8f4; }
+  .sig-block .meta { font-size: 9pt; color: var(--muted); text-align: left; margin-top: 4pt; }
+  .audit { font-size: 8.5pt; color: var(--muted); margin-top: 12pt; border-top: 1px solid #ddd; padding-top: 8pt; }
+  .dock {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: #fff; border-top: 1px solid var(--line);
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); font-family: system-ui, sans-serif;
+    box-shadow: 0 -6px 20px rgba(0,0,0,.06);
+  }
+  .dock.collapsed .dock-body { display: none; }
+  .dock-toggle { width: 100%; background: none; border: 0; padding: 0 0 8px; font: 600 13px system-ui, sans-serif; color: var(--green); cursor: pointer; text-align: left; }
+  label { display: block; font-size: 12px; font-weight: 600; margin: 8px 0 4px; }
+  input[type="text"], input[type="email"] { width: 100%; font-size: 16px; padding: 10px 12px; border: 1px solid #bbb; border-radius: 8px; font-family: system-ui, sans-serif; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 560px) { .row { grid-template-columns: 1fr; } }
+  .pad-wrap { position: relative; border: 1.5px solid #bbb; border-radius: 10px; background: #fafafa; overflow: hidden; }
+  canvas { width: 100%; height: 120px; display: block; touch-action: none; cursor: crosshair; }
+  .pad-hint { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; color: #9aa; font-size: 13px; }
+  .actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .actions button { flex: 1; min-width: 120px; font-size: 15px; font-weight: 700; border: 0; border-radius: 8px; padding: 12px 14px; cursor: pointer; font-family: system-ui, sans-serif; }
+  .primary { background: var(--green); color: #fff; }
+  .primary:disabled { opacity: .45; cursor: not-allowed; }
+  .secondary { background: #e8efe9; color: var(--green); }
+  .ghost { background: transparent; color: var(--muted); border: 1px solid #ccc !important; }
+  .consent { display: flex; gap: 8px; align-items: flex-start; margin: 10px 0 0; font-size: 12px; color: #333; }
+  .consent input { margin-top: 3px; }
+  .err { color: var(--danger); font-size: 12px; min-height: 16px; margin-top: 6px; }
+  .done, .note { display: none; font-family: system-ui, sans-serif; border-radius: 10px; padding: 12px; margin-top: 10px; font-size: 13px; }
+  .done { background: #e8efe9; border: 1px solid #b7cfc3; }
+  .note { background: #fff6e5; border: 1px solid #e6d2a8; }
+  body.form-done .dock-form { display: none; }
+  body.form-done .done { display: block; }
+  body.locked .dock-form { display: none; }
+  body.locked .note { display: block; }
+  @media print {
+    .chrome, .banner, .dock { display: none !important; }
+    body { background: #fff; }
+    .wrap { padding: 0; max-width: none; }
+    article { border: 0; padding: 0; page-break-after: always; }
+    article:last-of-type { page-break-after: auto; }
+    .sig-block .sig-line.mine { background: none; }
+  }
+</style>
+</head>
+<body>
+<header class="chrome no-print">
+  <div>
+    <h1>GreenOps Advisory MOU — v1.1 + Amendment No. 1</h1>
+    <p>NEI-MOU-2026-001 · New Era Intelligence Inc. &amp; Edwin Vandernap</p>
+  </div>
+  <a href="#sign-dock" id="jump-sign">Sign</a>
+</header>
+<div class="banner no-print" id="banner">
+  Review both documents below, then sign once. Your signature is applied to the Memorandum of Understanding (v1.1) and to Amendment No. 1. The package is complete when all four signatories have signed.
+</div>
+<div class="wrap">
+  <article id="doc-mou">
+    <p class="doc-label">Document 1 of 2 — Memorandum of Understanding, Version 1.1</p>
+<h1>MEMORANDUM OF UNDERSTANDING</h1>
+<h2>GREENHOUSE OPERATIONS ADVISORY PARTNERSHIP</h2>
+<hr>
+<p><strong>Document Reference:</strong> NEI-MOU-2026-001<br><strong>Effective Date:</strong> June 3, 2026<br><strong>Version:</strong> 1.1 (revised September 7, 2026 — see Revision History)</p>
+<hr>
+<h2>PARTIES</h2>
+<p>This Memorandum of Understanding ("MOU") is entered into as of the Effective Date set forth above, by and between:</p>
+<p><strong>NEW ERA INTELLIGENCE INC.</strong><br><em>(hereinafter referred to as "New Era" or the "Company")</em><br>Represented by its Founding Partners:</p>
+<ul><li>Calvin Leung</li><li>Olu Deji Erinle</li><li>Simon Loewen</li></ul>
+<p>and</p>
+<p><strong>EDWIN VANDERNAP</strong><br><em>(hereinafter referred to as "Advisor")</em><br>An independent greenhouse operations consultant</p>
+<p><em>(collectively referred to as "the Parties")</em></p>
+<hr>
+<h2>RECITALS</h2>
+<p><strong>WHEREAS</strong>, New Era Intelligence is a technology company engaged in the development and commercialization of artificial intelligence-driven enterprise resource planning ("ERP") software systems tailored to controlled-environment and greenhouse agricultural operations, marketed under the "GreenOps" brand ("the System");</p>
+<p><strong>WHEREAS</strong>, Edwin Vandernap is a recognized expert in high-level greenhouse operations, controlled-environment agriculture management, and agricultural consultancy, with extensive domain knowledge directly relevant to the design, deployment, and adoption of the System;</p>
+<p><strong>WHEREAS</strong>, New Era seeks to engage Edwin Vandernap as a trusted long-term advisor to provide strategic guidance, technical domain expertise, and client partnership support in connection with the GreenOps System;</p>
+<p><strong>WHEREAS</strong>, the Parties recognize a mutual interest in a long-term collaborative relationship structured to align Edwin Vandernap's incentives with the commercial success of the GreenOps System;</p>
+<p><strong>NOW, THEREFORE</strong>, in consideration of the mutual commitments set forth herein, and for good and valuable consideration, the receipt and sufficiency of which are hereby acknowledged, the Parties agree to the following terms:</p>
+<hr>
+<h2>ARTICLE 1 — DEFINITIONS</h2>
+<p><strong>1.1 "GreenOps System"</strong> means the full suite of software modules, AI-driven analytics tools, dashboards, and ERP functionality developed and maintained by New Era Intelligence under the GreenOps brand, including all current and future modules deployed thereunder.</p>
+<p><strong>1.2 "Qualifying Revenue"</strong> means gross cash receipts actually collected by New Era from clients in connection with GreenOps System subscriptions, implementation services, onboarding fees, and any professional services contracts directly arising from GreenOps engagements.</p>
+<p><strong>1.3 "Net Profit"</strong> means Qualifying Revenue less Direct Operational Costs. Direct Operational Costs include: cloud infrastructure and hosting fees, software licensing costs directly attributable to the GreenOps System, and direct third-party service costs attributable to client delivery. Net Profit expressly excludes: general corporate overhead, salaries of New Era founders and employees, new feature development costs, and marketing expenses unless mutually agreed in writing.</p>
+<p><strong>1.4 "Advisory Profit Share"</strong> means the percentage of Net Profit payable to the Advisor as described in Article 4.</p>
+<p><strong>1.5 "New Era-Sourced Client"</strong> means any client engaged by New Era through its own commercial efforts, referrals, marketing, or partnerships not originated by the Advisor.</p>
+<p><strong>1.6 "Advisor-Originated Client"</strong> means any client introduced, referred, or brought to New Era by the Advisor, where: (a) the Advisor provides a written introduction or referral to New Era prior to commercial engagement, and (b) New Era confirms in writing that the introduction qualifies under this definition. Disputes regarding origination shall default to New Era-Sourced classification unless resolved by mutual agreement.</p>
+<p><strong>1.7 "Economic Intelligence Module"</strong> means the GreenOps software module currently being implemented, comprising the Profit per Square Metre Dashboard, Capital Planning Hub, Marginal Profit Calculator, and Economics Hub, representing the proprietary analytical layer derived from the CEAlutions operational intelligence framework.</p>
+<p><strong>1.8 "Greenhouse Digital Twin &amp; Crop Modeling Module"</strong> means a prospective GreenOps software module, not yet commercially deployed, envisioned to provide a real-time or near-real-time digital representation of greenhouse growing environments — including crop modeling, environmental simulation, growth-stage tracking, and predictive yield analytics — developed with material advisory input from the Advisor based on his deep expertise in controlled-environment greenhouse operations. This module's scope and delivery timeline are subject to mutual agreement between the Parties prior to development commencement.</p>
+<p><strong>1.9 "Advisor-Owned Model"</strong> means the CEAlutions Greenhouse Transmission Model authored by the Advisor, comprising its calculation methodology, formulas, default parameter values, source workbooks, and accompanying documentation as provided to New Era (including the v1.2 standalone model, the NOAA solar-course workbook, and the V3 24-hour anisotropic Perez model), together with any subsequent versions, corrections, or extensions of that model the Advisor provides to New Era during the Term.</p>
+<hr>
+<h2>ARTICLE 2 — PURPOSE AND SCOPE</h2>
+<p><strong>2.1 Purpose.</strong> The purpose of this MOU is to formalize the long-term advisory relationship between the Parties, define the Advisor's roles and responsibilities in connection with the GreenOps System, establish transparent financial compensation terms, and provide a shared framework for the Parties to collaborate on the growth and adoption of the GreenOps System across the greenhouse agriculture sector.</p>
+<p><strong>2.2 Scope.</strong> This MOU governs the Advisor's involvement in:</p>
+<ul><li>(a) All GreenOps System implementations, deployments, and ongoing client engagements;</li><li>(b) Technical and operational advisory services related to the System's development and positioning;</li><li>(c) Client origination, onboarding advisory, and relationship management activities.</li></ul>
+<p><strong>2.3 Non-Exclusivity.</strong> This MOU does not prevent the Advisor from engaging in other consulting activities, provided such activities do not create a conflict of interest with New Era or involve direct competition with the GreenOps System during the Term of this MOU.</p>
+<hr>
+<h2>ARTICLE 3 — ROLES AND RESPONSIBILITIES</h2>
+<h3>3.1 Advisor's Responsibilities</h3>
+<p>The Advisor agrees to serve as New Era's trusted long-term strategic advisor for the GreenOps System in the greenhouse operations vertical, and in that capacity agrees to:</p>
+<ul><li>(a) <strong>Domain Expertise:</strong> Provide expert guidance on greenhouse operational workflows, industry standards, and best practices to inform the design, prioritization, and refinement of GreenOps System modules;</li><li>(b) <strong>Technical Advisory:</strong> Advise on the technical and operational relevance of system features, data models, and reporting outputs as they relate to real-world greenhouse operations, including crop production, pack house operations, workforce management, and economic performance measurement;</li><li>(c) <strong>Client Onboarding Support:</strong> Assist New Era in client onboarding activities by providing domain credibility, operational context, and practical guidance to help greenhouse operators successfully adopt the System;</li><li>(d) <strong>Strategic Steering:</strong> Participate in periodic strategic reviews to help guide the long-term direction of the GreenOps System roadmap, particularly with respect to greenhouse-specific features and market positioning;</li><li>(e) <strong>Business Development (as applicable):</strong> Leverage existing professional networks and industry relationships to identify prospective clients for the GreenOps System, where the Advisor chooses to do so;</li><li>(f) <strong>Good Faith Engagement:</strong> Act in good faith in all dealings with New Era, its clients, and partners, and represent the GreenOps System accurately and professionally.</li></ul>
+<p>The Parties acknowledge that the Advisor is an independent contractor and not an employee of New Era. The Advisor is not required to meet minimum time commitments or activity quotas unless separately agreed in writing.</p>
+<h3>3.2 New Era's Responsibilities</h3>
+<p>New Era agrees to:</p>
+<ul><li>(a) Keep the Advisor reasonably informed of material developments in the GreenOps System, including significant new module releases, major client engagements, and strategic direction changes that may affect the Advisor's role;</li><li>(b) Provide the Advisor with access to relevant system demonstrations, product documentation, and operational materials needed to fulfill the advisory role;</li><li>(c) Make all profit share payments accurately and on time as set out in Article 4;</li><li>(d) Provide the Advisor with quarterly financial statements sufficient to verify the Net Profit calculation applicable to Advisory Profit Share computations;</li><li>(e) Acknowledge the Advisor's contributions transparently in client contexts where appropriate and agreed by both Parties.</li></ul>
+<hr>
+<h2>ARTICLE 4 — FINANCIAL TERMS</h2>
+<h3>4.1 Base Advisory Profit Share — New Era-Sourced Clients</h3>
+<p>For all clients that are New Era-Sourced Clients (as defined in Article 1.5), New Era shall pay the Advisor a Base Advisory Profit Share equal to <strong>ten percent (10%)</strong> of Net Profit attributable to such clients' GreenOps System subscriptions and services.</p>
+<p>This 10% Base Advisory Profit Share is payable regardless of whether the Advisor actively participated in that client engagement, in recognition of the Advisor's ongoing contribution to the credibility, design integrity, and domain authority of the GreenOps System as a whole.</p>
+<h3>4.2 Client Origination Profit Share — Advisor-Originated Clients</h3>
+<p>For all Advisor-Originated Clients (as defined in Article 1.6), New Era shall pay the Advisor a Client Origination Profit Share equal to <strong>fifty percent (50%)</strong> of Net Profit attributable to such clients' GreenOps System subscriptions and services, for the lifetime of that client relationship.</p>
+<p>The 50% Client Origination Profit Share replaces (and is not additive to) the 10% Base Advisory Profit Share described in Section 4.1 for the same client. Module-specific bonuses under Sections 4.3 and 4.4 apply in addition to the applicable base rate for all clients.</p>
+<h3>4.3 Economic Intelligence Module Bonus</h3>
+<p>In recognition of the Advisor's domain expertise being materially embedded in the design, metric definitions, and operational logic of the Economic Intelligence Module (defined in Article 1.7), the Advisor shall receive an additional profit share of <strong>five percent (5%)</strong> of Net Profit attributable to any client's subscription to the Economic Intelligence Module, regardless of whether that client is New Era-Sourced or Advisor-Originated, and regardless of whether the Advisor specifically recommended that module to the client.</p>
+<p><em>Rationale: The Economic Intelligence Module's core value — profitability analysis on a per-square-metre basis, marginal profit modeling, and capital planning — is directly shaped by operational benchmarks, production realities, and financial structures native to greenhouse operations. The Advisor's expert contribution to this module is ongoing and structural, warranting a royalty-style recognition that follows the module wherever it is deployed.</em></p>
+<h3>4.4 Greenhouse Digital Twin &amp; Crop Modeling Module Bonus</h3>
+<p>In recognition of the Advisor's deep expertise in controlled-environment greenhouse operations, crop physiology, and environmental management — expertise that is expected to be materially formative to the design and development of the Greenhouse Digital Twin &amp; Crop Modeling Module (defined in Article 1.8) — the Advisor shall receive an additional profit share of <strong>five percent (5%)</strong> of Net Profit attributable to any client's subscription to that module, commencing upon its commercial deployment.</p>
+<p>This bonus applies to all clients using the Greenhouse Digital Twin &amp; Crop Modeling Module regardless of whether the Advisor referred the client or recommended the module. If the module is never commercially deployed, this provision shall have no effect and create no obligation on either Party.</p>
+<p><em>Rationale: A greenhouse digital twin and crop modeling capability is inherently dependent on domain knowledge that cannot be engineered without expert input from experienced greenhouse operators. The Advisor's practical understanding of crop growth cycles, climate interactions, and yield drivers is central to making such a module operationally meaningful. The 5% mirrors the Economic Intelligence Module bonus, reflecting the equivalent depth of the Advisor's contribution to a module of comparable strategic value.</em></p>
+<h3>4.5 Stacking and Interaction of Profit Share Components</h3>
+<p>For clarity, the profit share components interact as follows:</p>
+<table><thead><tr><th style="text-align:left">Client Type</th><th style="text-align:left">Module Used</th><th style="text-align:left">Applicable Profit Share</th></tr></thead><tbody><tr><td style="text-align:left">New Era-Sourced</td><td style="text-align:left">Standard modules only</td><td style="text-align:left">10% of Net Profit</td></tr><tr><td style="text-align:left">New Era-Sourced</td><td style="text-align:left">Includes Economic Intelligence</td><td style="text-align:left">10% + 5% = 15% on EI module revenue</td></tr><tr><td style="text-align:left">New Era-Sourced</td><td style="text-align:left">Includes Greenhouse Digital Twin</td><td style="text-align:left">10% + 5% = 15% on DT module revenue</td></tr><tr><td style="text-align:left">New Era-Sourced</td><td style="text-align:left">Both bonus modules</td><td style="text-align:left">10% base + 5% EI + 5% DT on respective module revenues</td></tr><tr><td style="text-align:left">Advisor-Originated</td><td style="text-align:left">Standard modules only</td><td style="text-align:left">50% of Net Profit</td></tr><tr><td style="text-align:left">Advisor-Originated</td><td style="text-align:left">Includes Economic Intelligence</td><td style="text-align:left">50% base + 5% = 55% on EI module revenue</td></tr><tr><td style="text-align:left">Advisor-Originated</td><td style="text-align:left">Includes Greenhouse Digital Twin</td><td style="text-align:left">50% base + 5% = 55% on DT module revenue</td></tr><tr><td style="text-align:left">Advisor-Originated</td><td style="text-align:left">Both bonus modules</td><td style="text-align:left">50% base + 5% EI + 5% DT on respective module revenues</td></tr></tbody></table>
+<h3>4.6 Profit Calculation and Reporting</h3>
+<p>New Era shall:</p>
+<ul><li>(a) Maintain accurate books and records sufficient to calculate Net Profit by client and by module;</li><li>(b) Provide the Advisor with a written quarterly profit share statement within <strong>thirty (30) days</strong> of the end of each calendar quarter, detailing Qualifying Revenue, Direct Operational Costs, Net Profit, and the applicable profit share calculation for each client and module;</li><li>(c) Make payment of all amounts due within <strong>thirty (30) days</strong> of each quarter-end, by electronic transfer to banking details provided by the Advisor.</li></ul>
+<h3>4.7 Audit Rights</h3>
+<p>The Advisor shall have the right, upon thirty (30) days' written notice and no more than once per calendar year, to request an independent review of New Era's financial records for the purpose of verifying profit share calculations. The cost of any such review shall be borne by the Advisor unless the review reveals an underpayment exceeding five percent (5%) of the amount due, in which case New Era shall bear the cost and promptly remit any shortfall with interest at the prime rate.</p>
+<h3>4.8 No Minimum Guarantee</h3>
+<p>New Era does not guarantee any minimum level of Qualifying Revenue or Net Profit. The Advisor's compensation under this MOU is entirely contingent on the commercial performance of the GreenOps System.</p>
+<hr>
+<h2>ARTICLE 5 — INTELLECTUAL PROPERTY</h2>
+<p><strong>5.1</strong> Subject to Section 5.4, all intellectual property developed by New Era in connection with the GreenOps System, including software, algorithms, documentation, and proprietary methodologies, shall remain the sole property of New Era Intelligence.</p>
+<p><strong>5.2</strong> Any specific domain knowledge, frameworks, or methodologies contributed by the Advisor that are incorporated into the GreenOps System shall be acknowledged as the Advisor's contribution but shall be deemed licensed to New Era on a royalty-free, perpetual basis in consideration of the profit share arrangements set forth in Article 4.</p>
+<p><strong>5.3</strong> Nothing in this MOU grants the Advisor any ownership interest in New Era Intelligence or the GreenOps System.</p>
+<p><strong>5.4 Advisor-Owned Model.</strong></p>
+<ul><li>(a) <strong>Ownership retained by Advisor.</strong> Notwithstanding Section 5.1, the Advisor-Owned Model (as defined in Section 1.9), including all subsequent versions the Advisor provides, is and shall remain the sole and exclusive property of the Advisor, operating as CEAlutions Inc. Nothing in this MOU transfers ownership of the Advisor-Owned Model to New Era.</li><li>(b) <strong>Licence to New Era.</strong> The Advisor-Owned Model is licensed to New Era under Section 5.2. That licence permits New Era to implement the model in software, host it, adapt it as reasonably required for integration with the GreenOps System, and make it available to GreenOps clients as part of the GreenOps System. The licence is non-exclusive, royalty-free, and perpetual, and is granted in consideration of the profit share arrangements in Article 4, including the Greenhouse Digital Twin &amp; Crop Modeling Module Bonus in Section 4.4.</li><li>(c) <strong>Implementation code.</strong> Software source code written by New Era to implement the Advisor-Owned Model within the GreenOps System (including user interface, data storage, and integration code) is New Era's property under Section 5.1. Ownership of that code does not extend to the underlying model, methodology, formulas, or defaults it implements, which remain the Advisor's under Section 5.4(a).</li><li>(d) <strong>Attribution.</strong> New Era shall credit the Advisor and CEAlutions Inc. as the author of the Advisor-Owned Model wherever it is presented to users within the GreenOps System, in data exports derived from it, and in source-code notices accompanying its implementation.</li><li>(e) <strong>Advisor's freedom to use.</strong> The licence in Section 5.4(b) is non-exclusive. The Advisor remains free to use, develop, license, publish, or commercialise the Advisor-Owned Model independently of New Era and the GreenOps System, subject only to the confidentiality obligations in Article 6 with respect to New Era's Confidential Information.</li></ul>
+<hr>
+<h2>ARTICLE 6 — CONFIDENTIALITY</h2>
+<p><strong>6.1</strong> Each Party agrees to hold in strict confidence all non-public, proprietary, or commercially sensitive information disclosed by the other Party in connection with this MOU ("Confidential Information"), including but not limited to: client lists, pricing structures, financial data, system architecture, product roadmaps, and business strategies.</p>
+<p><strong>6.2</strong> Confidential Information shall not be disclosed to any third party without the prior written consent of the disclosing Party, except as required by law or legal process.</p>
+<p><strong>6.3</strong> This confidentiality obligation shall survive the termination of this MOU for a period of <strong>three (3) years</strong>.</p>
+<hr>
+<h2>ARTICLE 7 — TERM AND TERMINATION</h2>
+<p><strong>7.1 Initial Term.</strong> This MOU shall commence on the Effective Date and remain in force for an initial term of <strong>two (2) years</strong> ("Initial Term").</p>
+<p><strong>7.2 Renewal.</strong> Upon expiry of the Initial Term, this MOU shall automatically renew for successive one (1) year periods unless either Party provides written notice of non-renewal at least <strong>ninety (90) days</strong> prior to the end of the then-current term.</p>
+<p><strong>7.3 Termination for Convenience.</strong> After the Initial Term, either Party may terminate this MOU for convenience upon <strong>ninety (90) days'</strong> written notice to the other Party.</p>
+<p><strong>7.4 Termination for Cause.</strong> Either Party may terminate this MOU immediately upon written notice if the other Party materially breaches any provision of this MOU and fails to cure such breach within <strong>thirty (30) days</strong> of written notice specifying the breach.</p>
+<p><strong>7.5 Effect of Termination.</strong> Upon termination:</p>
+<ul><li>(a) All profit share obligations accrued prior to the termination date shall survive and remain payable;</li><li>(b) For Advisor-Originated Clients whose relationships were established during the Term, New Era shall continue to pay the 50% Client Origination Profit Share for a period of <strong>twenty-four (24) months</strong> following termination, after which no further profit share obligations shall arise for those clients;</li><li>(c) Module bonuses under Sections 4.3 and 4.4 shall cease upon termination.</li><li>(d) The Base Advisory Profit Share (10%) for New Era-Sourced Clients shall cease upon termination.</li></ul>
+<hr>
+<h2>ARTICLE 8 — DISPUTE RESOLUTION</h2>
+<p><strong>8.1</strong> In the event of a dispute arising under this MOU, the Parties shall first attempt to resolve the matter through good-faith negotiation between the Parties' respective representatives within <strong>fifteen (15) business days</strong> of written notice of the dispute.</p>
+<p><strong>8.2</strong> If the dispute is not resolved through negotiation, the Parties agree to submit the matter to non-binding mediation before a mutually agreed mediator, the costs of which shall be shared equally.</p>
+<p><strong>8.3</strong> If mediation fails to resolve the dispute within <strong>forty-five (45) days</strong>, either Party may pursue legal remedies available under applicable law.</p>
+<hr>
+<h2>ARTICLE 9 — GENERAL PROVISIONS</h2>
+<p><strong>9.1 Governing Law.</strong> This MOU shall be governed by and construed in accordance with the laws of the Province of British Columbia, Canada, and the federal laws of Canada applicable therein, without regard to conflict of law principles.</p>
+<p><strong>9.2 Entire Agreement.</strong> This MOU constitutes the entire agreement between the Parties with respect to the subject matter hereof and supersedes all prior discussions, representations, or agreements, whether written or oral.</p>
+<p><strong>9.3 Amendments.</strong> This MOU may only be amended by a written instrument signed by authorized representatives of all Parties.</p>
+<p><strong>9.4 Severability.</strong> If any provision of this MOU is found to be invalid, illegal, or unenforceable, the remaining provisions shall continue in full force and effect.</p>
+<p><strong>9.5 Independent Contractor.</strong> The Advisor is an independent contractor and not an employee, agent, or partner of New Era. Nothing in this MOU shall create or be deemed to create any partnership, joint venture, employment, or agency relationship between the Parties.</p>
+<p><strong>9.6 Binding Nature.</strong> The financial provisions set forth in Article 4, the confidentiality obligations in Article 6, and the post-termination obligations in Article 7.5 are intended to be legally binding on both Parties. The remaining provisions reflect the good-faith intentions of the Parties and shall be interpreted accordingly.</p>
+<p><strong>9.7 Notices.</strong> All notices under this MOU shall be in writing and delivered by email with read receipt or by registered mail to the addresses provided by each Party at signing.</p>
+<p><strong>9.8 Counterparts.</strong> This MOU may be executed in counterparts, each of which shall be deemed an original, and all of which together shall constitute one and the same instrument. Electronic signatures shall be deemed valid and binding.</p>
+<hr>
+<h2>ARTICLE 10 — ACKNOWLEDGEMENT</h2>
+<p>The Parties acknowledge that they have each had the opportunity to review this MOU, seek independent legal advice, and that they enter into this agreement freely and with full understanding of its terms.</p>
+<hr>
+<h2>REVISION HISTORY</h2>
+<table><thead><tr><th style="text-align:left">Version</th><th style="text-align:left">Date</th><th style="text-align:left">Change</th></tr></thead><tbody><tr><td style="text-align:left">1.0</td><td style="text-align:left">June 3, 2026</td><td style="text-align:left">Initial document.</td></tr><tr><td style="text-align:left">1.1</td><td style="text-align:left">September 7, 2026</td><td style="text-align:left">Added Section 1.9 (definition of "Advisor-Owned Model") and Section 5.4 (Advisor-Owned Model: ownership retained by the Advisor, licence to New Era under Section 5.2, implementation code, attribution, Advisor's freedom to use). Section 5.1 made subject to Section 5.4. No change to Articles 4, 6, 7, or any other provision.</td></tr></tbody></table>
+<hr>
+<hr>
+<h2 id="signatures-mou">SIGNATURES — MEMORANDUM OF UNDERSTANDING v1.1</h2>
+<p><strong>IN WITNESS WHEREOF</strong>, the Parties have executed this Memorandum of Understanding as of the Effective Date. Electronic signatures are valid and binding under Section 9.8.</p>
+<div class="sig-grid" data-sig-grid="mou"></div>
+<p><em>Document Reference: NEI-MOU-2026-001 | Effective: June 3, 2026 | Version 1.1 | e-sign counterpart</em></p>
+  </article>
+
+  <article id="doc-amd">
+    <p class="doc-label">Document 2 of 2 — Amendment No. 1</p>
+<h1>AMENDMENT NO. 1</h1>
+<h2>TO THE MEMORANDUM OF UNDERSTANDING — GREENHOUSE OPERATIONS ADVISORY PARTNERSHIP</h2>
+<hr>
+<p><strong>Document Reference:</strong> NEI-MOU-2026-001-A1<br><strong>Amends:</strong> NEI-MOU-2026-001, Version 1.1 (effective June 3, 2026; revised September 7, 2026) (the "MOU")<br><strong>Amendment Effective Date:</strong> <span class="amd-effective">the date on which the last Party signs this Amendment (see Section 5.5)</span></p>
+<hr>
+<h2>PARTIES</h2>
+<p>This Amendment No. 1 (the "Amendment") is entered into as of the Amendment Effective Date by and between:</p>
+<p><strong>NEW ERA INTELLIGENCE INC.</strong> ("New Era" or the "Company"), represented by its Founding Partners Calvin Leung, Olu Deji Erinle, and Simon Loewen;</p>
+<p>and</p>
+<p><strong>EDWIN VANDERNAP</strong> (the "Advisor"), an independent greenhouse operations consultant, carrying on business through <strong>CEALUTIONS INC.</strong></p>
+<p><em>(collectively, the "Parties")</em></p>
+<hr>
+<h2>RECITALS</h2>
+<p><strong>WHEREAS</strong>, the Parties entered into the MOU, under which New Era pays the Advisor an Advisory Profit Share calculated and paid quarterly in arrears pursuant to Article 4;</p>
+<p><strong>WHEREAS</strong>, Section 4.6(c) of the MOU provides for payment within thirty (30) days of each quarter-end, Section 4.8 provides that no minimum amount is guaranteed, and the MOU does not otherwise contemplate payment of any Advisory Profit Share before it has been earned;</p>
+<p><strong>WHEREAS</strong>, New Era has commenced a GreenOps System engagement with Big Marble Farms (the "Initial Engagement") and expects to invoice that client monthly, giving rise to Advisory Profit Share payable to the Advisor under Section 4.1 and, where applicable, Sections 4.3 and 4.4;</p>
+<p><strong>WHEREAS</strong>, New Era is willing, and the Advisor wishes, to have a portion of the Advisory Profit Share expected to arise under the MOU paid in advance as a single lump sum, to be recovered by New Era from Advisory Profit Share as it is earned;</p>
+<p><strong>WHEREAS</strong>, the Advisor carries on his consulting business through CEAlutions Inc. and the Parties wish to confirm the entity through which amounts under the MOU are invoiced and paid;</p>
+<p><strong>AND WHEREAS</strong>, Section 9.3 of the MOU provides that the MOU may only be amended by a written instrument signed by authorized representatives of all Parties;</p>
+<p><strong>NOW, THEREFORE</strong>, the Parties agree as follows:</p>
+<hr>
+<h2>ARTICLE 1 — INTERPRETATION</h2>
+<p><strong>1.1</strong> Capitalized terms used but not defined in this Amendment have the meanings given to them in the MOU.</p>
+<p><strong>1.2</strong> In this Amendment:</p>
+<ul><li>(a) <strong>"Advance"</strong> means the lump-sum payment described in Section 2.1.</li><li>(b) <strong>"Advance Balance"</strong> means, at any time, the amount of the Advance not yet recouped under Article 3.</li><li>(c) <strong>"Billing Entity"</strong> means CEAlutions Inc., a corporation controlled by the Advisor.</li><li>(d) <strong>"Earned Profit Share"</strong> means, for any calendar quarter, the total Advisory Profit Share that becomes payable to the Advisor under Article 4 of the MOU for that quarter, from all clients and all components (Sections 4.1, 4.2, 4.3 and 4.4), as set out in the quarterly statement required by Section 4.6(b).</li></ul>
+<p><strong>1.3</strong> Where this Amendment conflicts with the MOU, this Amendment governs. In all other respects the MOU is unchanged and remains in full force and effect.</p>
+<hr>
+<h2>ARTICLE 2 — THE ADVANCE</h2>
+<p><strong>2.1 Payment.</strong> Within ten (10) business days after the Amendment Effective Date and receipt of a compliant invoice under Section 4.1, New Era shall pay the Advisor, through the Billing Entity, a lump sum of <strong>CAD $13,000.00</strong> plus applicable GST (the "Advance") by electronic transfer to the banking details provided by the Billing Entity.</p>
+<p><strong>2.2 Character of the Advance.</strong> The Advance is a prepayment of Advisory Profit Share expected to become payable under Article 4 of the MOU. For clarity, the Advance:</p>
+<ul><li>(a) is a commercial fee paid under a contract for services, and is not a dividend, distribution, or return on equity (the Advisor holds no ownership interest in New Era, per Section 5.3 of the MOU);</li><li>(b) is not additional compensation and does not increase the total amount payable to the Advisor under the MOU;</li><li>(c) is not a loan and bears no interest;</li><li>(d) does not create, and shall not be construed as, a minimum guarantee for the purposes of Section 4.8 of the MOU, except to the extent expressly set out in Section 3.4 of this Amendment;</li><li>(e) is a one-time arrangement. Nothing in this Amendment obliges New Era to make any further advance, and any future advance requires a further written agreement under Section 9.3 of the MOU.</li></ul>
+<p><strong>2.3 Basis of Estimate.</strong> The Parties acknowledge that the Advance amount is New Era's good-faith estimate of the Base Advisory Profit Share (10% of Net Profit, as defined in Section 1.3 of the MOU) expected to arise from the Initial Engagement over the twenty-four (24) month initial term of New Era's agreement with that client, and that actual Earned Profit Share may be higher or lower.</p>
+<hr>
+<h2>ARTICLE 3 — RECOUPMENT</h2>
+<p><strong>3.1 Application of Earned Profit Share.</strong> Commencing with the calendar quarter in which the Advance is paid, and for each quarter thereafter until the Advance Balance is reduced to zero, New Era shall apply one hundred percent (100%) of the Earned Profit Share for that quarter against the Advance Balance instead of paying it to the Advisor in cash.</p>
+<p><strong>3.2 Resumption of Cash Payments.</strong> In the first quarter in which Earned Profit Share exceeds the then-outstanding Advance Balance, New Era shall apply Earned Profit Share to reduce the Advance Balance to zero and shall pay the excess to the Advisor in cash in accordance with Section 4.6(c) of the MOU. Thereafter, all Earned Profit Share shall be paid in cash under Section 4.6(c) of the MOU without further reference to this Article 3.</p>
+<p><strong>3.3 Quarterly Statement.</strong> Each quarterly statement delivered under Section 4.6(b) of the MOU shall, until the Advance Balance is zero, additionally set out: (a) the Advance Balance at the start of the quarter; (b) the Earned Profit Share for the quarter; (c) the amount applied against the Advance Balance; (d) any cash amount payable to the Advisor; and (e) the Advance Balance at the end of the quarter.</p>
+<p><strong>3.4 Shortfall.</strong> If the MOU expires or is terminated under Article 7 of the MOU, or if the Initial Engagement ends, while an Advance Balance remains outstanding, the Advance Balance shall continue to be recouped under Section 3.1 from any Advisory Profit Share that becomes payable under Section 7.5(a) or 7.5(b) of the MOU. The Advisor shall have no obligation to repay any Advance Balance that is not so recouped, and New Era shall have no further claim in respect of it, <strong>except</strong> where the MOU is terminated by New Era for cause under Section 7.4 of the MOU, in which case the Advisor shall repay the outstanding Advance Balance to New Era, without interest, within ninety (90) days of the termination date, after first applying any Advisory Profit Share payable under Section 7.5(a) of the MOU against that balance.</p>
+<p><strong>3.5 Set-off.</strong> New Era's right to apply Earned Profit Share against the Advance Balance under this Article 3 is a contractual right of set-off and does not constitute a withholding, deduction, or late payment for the purposes of Sections 3.2(c), 4.6(c) or 4.7 of the MOU.</p>
+<hr>
+<h2>ARTICLE 4 — INVOICING, BILLING ENTITY AND TAX</h2>
+<p><strong>4.1 Invoice for the Advance.</strong> The Billing Entity shall issue New Era a single invoice for the Advance, which shall: (a) identify the Billing Entity and its GST registration number; (b) describe the supply as "Advance against Advisory Profit Share per MOU NEI-MOU-2026-001 (v1.1) dated June 3, 2026, as amended by Amendment No. 1"; (c) state the Advance amount, GST at the applicable rate, and the total; and (d) otherwise meet the requirements of the <em>Excise Tax Act</em> (Canada) for New Era to claim an input tax credit.</p>
+<p><strong>4.2 No Further Invoices During Recoupment.</strong> The Advance invoice under Section 4.1 is the only invoice to be issued in respect of Earned Profit Share applied against the Advance Balance. The Billing Entity shall not issue invoices for amounts applied under Section 3.1; the quarterly statement under Section 3.3 is the record of those applications. Invoices for cash amounts payable under Section 3.2 and thereafter shall be issued in the ordinary course on receipt of each quarterly statement.</p>
+<p><strong>4.3 Billing Entity.</strong> The Parties confirm that, with effect from the Effective Date of the MOU, the Advisor performs the advisory services described in Article 3 of the MOU through the Billing Entity, and that all invoices for, and payments of, Advisory Profit Share under the MOU are to be issued by and paid to the Billing Entity at the Advisor's direction. Payment to the Billing Entity discharges New Era's corresponding payment obligation to the Advisor under the MOU. The Advisor remains personally bound by the MOU and this Amendment and is responsible for the Billing Entity's compliance with them.</p>
+<p><strong>4.4 Taxes.</strong> Each Party is responsible for its own income tax reporting in respect of amounts paid under the MOU and this Amendment. GST shall be charged and remitted by the Billing Entity as required by law. Nothing in this Amendment constitutes tax advice by either Party to the other.</p>
+<hr>
+<h2>ARTICLE 5 — GENERAL</h2>
+<p><strong>5.1 Ratification.</strong> Except as expressly amended by this Amendment, the MOU is ratified and confirmed. Articles 6, 7, 8 and 9 of the MOU apply to this Amendment as if set out in full herein.</p>
+<p><strong>5.2 Binding Nature.</strong> For the purposes of Section 9.6 of the MOU, Articles 2, 3 and 4 of this Amendment form part of the financial provisions of the MOU and are intended to be legally binding on all Parties.</p>
+<p><strong>5.3 Counterparts and Electronic Signature.</strong> This Amendment may be executed in counterparts and by electronic signature in accordance with Section 9.8 of the MOU.</p>
+<p><strong>5.4 Independent Advice.</strong> Each Party acknowledges that it has had the opportunity to obtain independent legal and tax advice before signing this Amendment.</p>
+<p><strong>5.5 Effective Date.</strong> This Amendment takes effect on the date on which the last of the Parties signs it. Where the Parties sign electronically, the date and time recorded by the electronic signature system for the final signature is conclusive of the Amendment Effective Date.</p>
+<hr>
+<hr>
+<h2 id="signatures-amd">SIGNATURES — AMENDMENT NO. 1</h2>
+<p><strong>IN WITNESS WHEREOF</strong>, the Parties have executed this Amendment No. 1 as of the Amendment Effective Date. Electronic signatures are valid and binding under Section 5.3 of this Amendment and Section 9.8 of the MOU.</p>
+<div class="sig-grid" data-sig-grid="amd"></div>
+<div class="audit" id="audit-trail" hidden></div>
+<p><em>Document Reference: NEI-MOU-2026-001-A1 | Amends NEI-MOU-2026-001 v1.1 | e-sign</em></p>
+  </article>
+</div>
+
+<aside class="dock collapsed" id="sign-dock">
+  <button type="button" class="dock-toggle" id="dock-toggle">Electronic signature — tap to expand</button>
+  <div class="dock-body">
+    <form class="dock-form" id="sign-form">
+      <div class="row">
+        <div>
+          <label for="signer-name">Full legal name</label>
+          <input id="signer-name" type="text" autocomplete="name" required>
+        </div>
+        <div>
+          <label for="signer-title">Title / capacity</label>
+          <input id="signer-title" type="text" autocomplete="organization-title" required>
+        </div>
+      </div>
+      <label for="signer-email">Email (for the signed copy)</label>
+      <input id="signer-email" type="email" autocomplete="email" placeholder="optional">
+      <label>Draw your signature</label>
+      <div class="pad-wrap">
+        <canvas id="sig-pad" width="720" height="240"></canvas>
+        <div class="pad-hint" id="pad-hint">Sign here</div>
+      </div>
+      <label class="consent">
+        <input type="checkbox" id="consent" required>
+        <span id="consent-text">I have read the Memorandum of Understanding (v1.1) and Amendment No. 1. I am authorized to sign on behalf of the party named above. I agree that this electronic signature is my legal signature on both documents, and that the Amendment takes effect on the date the last party signs.</span>
+      </label>
+      <p class="err" id="form-err"></p>
+      <div class="actions">
+        <button type="button" class="ghost" id="clear-btn">Clear</button>
+        <button type="submit" class="primary" id="sign-btn">Sign both documents</button>
+      </div>
+    </form>
+    <div class="note" id="note-box"></div>
+    <div class="done" id="done-box">
+      <strong id="done-title">Signed and saved.</strong> <span id="done-copy"></span>
+      <div class="actions">
+        <button type="button" class="primary" id="print-btn">Save as PDF</button>
+        <button type="button" class="ghost" id="download-btn">Download HTML</button>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<script>window.__ESIGN__={"url":"https://jnorlpyxambpeuxqjmgc.supabase.co","anonKey":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impub3JscHl4YW1icGV1eHFqbWdjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1MzQwMDAsImV4cCI6MjA5NjExMDAwMH0.vrgvAmjE3ieeX4X5F7lWYBR77Hjee6zAR4kWvAPhWyU"}</script>
+<script>
+(function () {
+  const ESIGN = window.__ESIGN__ || {}
+  const DOC_REF = "NEI-MOU-2026-001"
+  const token = new URLSearchParams(location.search).get('k') || ''
+  const endpoint = ESIGN.url
+  const anonKey = ESIGN.anonKey || ''
+  const canvas = document.getElementById('sig-pad')
+  const ctx = canvas.getContext('2d')
+  const hint = document.getElementById('pad-hint')
+  const form = document.getElementById('sign-form')
+  const err = document.getElementById('form-err')
+  const dock = document.getElementById('sign-dock')
+  const toggle = document.getElementById('dock-toggle')
+  const noteBox = document.getElementById('note-box')
+  let state = null
+  let drawing = false
+
+  function esc(s) { return String(s || '').replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] }) }
+  function hasInk() {
+    const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data
+    for (let i = 3; i < data.length; i += 16) if (data[i] > 8) return true
+    return false
+  }
+  function pos(e) {
+    const r = canvas.getBoundingClientRect()
+    const src = e.touches ? e.touches[0] : e
+    return { x: (src.clientX - r.left) * (canvas.width / r.width), y: (src.clientY - r.top) * (canvas.height / r.height) }
+  }
+  function start(e) { e.preventDefault(); drawing = true; hint.style.display = 'none'; const p = pos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y) }
+  function move(e) {
+    if (!drawing) return
+    e.preventDefault()
+    const p = pos(e)
+    ctx.strokeStyle = '#111'; ctx.lineWidth = 3.2; ctx.lineCap = 'round'; ctx.lineJoin = 'round'
+    ctx.lineTo(p.x, p.y); ctx.stroke()
+  }
+  function end() { drawing = false }
+  canvas.addEventListener('pointerdown', start)
+  canvas.addEventListener('pointermove', move)
+  canvas.addEventListener('pointerup', end)
+  canvas.addEventListener('pointerleave', end)
+  canvas.addEventListener('touchstart', start, { passive: false })
+  canvas.addEventListener('touchmove', move, { passive: false })
+  canvas.addEventListener('touchend', end)
+  document.getElementById('clear-btn').onclick = function () { ctx.clearRect(0, 0, canvas.width, canvas.height); hint.style.display = 'flex' }
+
+  function setDock(open) {
+    dock.classList.toggle('collapsed', !open)
+    toggle.textContent = open ? 'Electronic signature' : 'Electronic signature — tap to expand'
+  }
+  toggle.onclick = function () { setDock(dock.classList.contains('collapsed')) }
+  document.getElementById('jump-sign').onclick = function (e) {
+    e.preventDefault(); setDock(true)
+    dock.scrollIntoView({ behavior: 'smooth', block: 'end' })
+    document.getElementById('signer-title').focus()
+  }
+
+  function stamp(d) {
+    const date = d ? new Date(d) : new Date()
+    return {
+      dateOnly: date.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/Edmonton' }),
+      when: date.toLocaleString('en-CA', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName: 'short', timeZone: 'America/Edmonton' }),
+    }
+  }
+
+  function renderSigners() {
+    const me = state && state.me
+    const signers = (state && state.signers) || []
+    document.querySelectorAll('[data-sig-grid]').forEach(function (grid) {
+      grid.innerHTML = signers.map(function (s) {
+        const mine = me && s.signer_key === me.signer_key
+        const who = s.signed ? s.name : s.display_name
+        const title = s.signed ? s.title : (s.default_title || '')
+        let line
+        if (s.signed) {
+          line = '<div class="sig-line' + (mine ? ' mine' : '') + '"><img alt="' + esc(who) + ' signature" src="' + s.signature_png + '"></div>' +
+            '<p class="meta">Signed electronically on ' + esc(s.signed_on_label || '') + '</p>'
+        } else {
+          line = '<div class="sig-line awaiting' + (mine ? ' mine' : '') + '">' + (mine ? 'Your signature will appear here' : 'Awaiting signature') + '</div>' +
+            '<p class="meta">Signature: ________________ Date: ________</p>'
+        }
+        return '<div class="sig-block"><p class="party">' + esc(s.party) + '</p>' +
+          '<p class="who"><strong>' + esc(who) + '</strong>' + (title ? ' — ' + esc(title) : '') + '</p>' + line + '</div>'
+      }).join('')
+    })
+
+    const audit = document.getElementById('audit-trail')
+    const signed = signers.filter(function (s) { return s.signed })
+    if (signed.length) {
+      audit.hidden = false
+      let html = '<p><strong>Electronic signature record.</strong> Documents: ' + DOC_REF + ' v1.1 and ' + DOC_REF + '-A1. Method: handwritten electronic signature captured in-browser, one signature per signatory applied to both documents, stored with server timestamps.</p>'
+      signed.forEach(function (s) {
+        html += '<p>' + esc(s.party) + ': ' + esc(s.name) + ', ' + esc(s.title) + '. Signed ' + esc(s.signed_on_label || '') + '.</p>'
+      })
+      const pending = signers.filter(function (s) { return !s.signed })
+      if (pending.length) html += '<p>Awaiting: ' + pending.map(function (s) { return esc(s.display_name) }).join(', ') + '.</p>'
+      if (state.document.status === 'executed' && state.document.executed_at) {
+        html += '<p>Fully executed ' + esc(stamp(state.document.executed_at).when) + '. Amendment Effective Date: ' + esc(stamp(state.document.executed_at).dateOnly) + '.</p>'
+      }
+      audit.innerHTML = html
+    }
+    if (state && state.document.status === 'executed' && state.document.executed_at) {
+      document.querySelectorAll('.amd-effective').forEach(function (n) { n.textContent = stamp(state.document.executed_at).dateOnly })
+    }
+  }
+
+  function archiveHtml() {
+    const clone = document.documentElement.cloneNode(true)
+    clone.querySelectorAll('.no-print, .dock, .chrome, .banner, script').forEach(function (n) { n.remove() })
+    return '<!DOCTYPE html>\n' + clone.outerHTML
+  }
+
+  async function rpc(name, body) {
+    if (!anonKey) throw new Error('Missing save configuration')
+    const res = await fetch(endpoint + '/rest/v1/rpc/' + name, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'apikey': anonKey, 'Authorization': 'Bearer ' + anonKey },
+      body: JSON.stringify(body),
+    })
+    const text = await res.text()
+    let data = null
+    try { data = JSON.parse(text) } catch (e) {}
+    if (!res.ok) throw new Error((data && (data.message || data.error || data.hint)) || text || ('HTTP ' + res.status))
+    return data
+  }
+
+  function pendingNames() {
+    return (state.signers || []).filter(function (s) { return !s.signed }).map(function (s) { return s.display_name })
+  }
+
+  function showDone(afterSigning) {
+    document.body.classList.remove('locked')
+    document.body.classList.add('form-done')
+    setDock(true)
+    const title = document.getElementById('done-title')
+    const copy = document.getElementById('done-copy')
+    const left = pendingNames()
+    if (state.document.status === 'executed') {
+      title.textContent = 'Fully executed by all parties.'
+      copy.textContent = 'Both documents are signed and stored. Save a PDF for your records.'
+      toggle.textContent = 'Fully executed — save your copy'
+    } else {
+      title.textContent = afterSigning ? 'Signed and saved.' : 'You have already signed.'
+      copy.textContent = 'Still to sign: ' + left.join(', ') + '. You can return to this link any time to see the completed package.'
+      toggle.textContent = afterSigning ? 'Signed and saved' : 'Already signed'
+    }
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault()
+    err.textContent = ''
+    const name = document.getElementById('signer-name').value.trim()
+    const title = document.getElementById('signer-title').value.trim()
+    const email = document.getElementById('signer-email').value.trim()
+    if (!name || !title) { err.textContent = 'Enter your name and title.'; return }
+    if (!hasInk()) { err.textContent = 'Please draw your signature.'; return }
+    if (!document.getElementById('consent').checked) { err.textContent = 'Confirm you have read both documents and are authorized to sign.'; return }
+
+    const stamped = stamp()
+    const png = canvas.toDataURL('image/png')
+    state.signers = state.signers.map(function (s) {
+      if (s.signer_key !== state.me.signer_key) return s
+      return Object.assign({}, s, { signed: true, name: name, title: title, signature_png: png, signed_on_label: stamped.when })
+    })
+    state.me.signed = true
+    renderSigners()
+
+    const btn = document.getElementById('sign-btn')
+    btn.disabled = true
+    btn.textContent = 'Saving…'
+    try {
+      const saved = await rpc('esign_submit', {
+        p_token: token,
+        p_payload: {
+          name: name, title: title, email: email,
+          signature_png: png,
+          signed_on_label: stamped.when,
+          user_agent: navigator.userAgent,
+          signed_html: archiveHtml(),
+        },
+      })
+      state.document.status = saved.status
+      state.document.executed_at = saved.executed_at
+      renderSigners()
+      showDone(true)
+      document.getElementById('signatures-amd').scrollIntoView({ behavior: 'smooth', block: 'start' })
+    } catch (ex) {
+      btn.disabled = false
+      btn.textContent = 'Sign both documents'
+      err.textContent = 'Save failed: ' + (ex.message || ex) + '. Check your connection and try again.'
+    }
+  })
+
+  document.getElementById('print-btn').onclick = function () { window.print() }
+  document.getElementById('download-btn').onclick = function () {
+    const blob = new Blob([archiveHtml()], { type: 'text/html' })
+    const a = document.createElement('a')
+    a.href = URL.createObjectURL(blob)
+    a.download = DOC_REF + '-v1.1-A1-signed.html'
+    a.click()
+  }
+
+  function lock(msg) {
+    document.body.classList.add('locked')
+    noteBox.textContent = msg
+    setDock(true)
+  }
+
+  if (!token) {
+    lock('This page needs a personal signing link. Ask New Era Intelligence for your link.')
+    return
+  }
+
+  rpc('esign_get', { p_token: token }).then(function (s) {
+    state = s
+    const me = s.me
+    document.getElementById('signer-name').value = me.display_name || ''
+    document.getElementById('signer-title').value = me.default_title || ''
+    document.getElementById('signer-email').value = me.default_email || ''
+    document.getElementById('banner').innerHTML =
+      'Signing as <strong>' + esc(me.display_name) + '</strong> for ' + esc(me.party) + '. Review both documents, then sign once below; your signature is applied to the MOU (v1.1) and to Amendment No. 1.'
+    renderSigners()
+    if (s.document.status === 'executed' || me.signed) {
+      showDone(false)
+    } else {
+      setDock(true)
+    }
+  }).catch(function (ex) {
+    const m = String(ex.message || ex)
+    lock(/unauthorized/i.test(m) ? 'This signing link is not recognised. Ask New Era Intelligence for a fresh link.' : 'Could not load the document state: ' + m)
+  })
+})()
+</script>
+</body>
+</html>
